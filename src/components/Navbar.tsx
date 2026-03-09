@@ -14,6 +14,7 @@ const navLinks = [
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [themeHintDismissed, setThemeHintDismissed] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -52,54 +53,42 @@ export const Navbar = () => {
             </a>
           ))}
           <div className="relative">
-            <ThemeToggle />
-            <motion.div 
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
-              className="absolute top-10 right-2 w-64 pointer-events-none"
-            >
-              <div className="relative flex flex-col items-end">
-                <svg 
-                  className="w-10 h-10 text-muted-foreground/40 mr-12 -mb-2 z-10" 
-                  viewBox="0 0 100 100" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round" 
+            <ThemeToggle onToggle={() => setThemeHintDismissed(true)} />
+            <AnimatePresence>
+              {!themeHintDismissed && (
+                <motion.div 
+                  key="desktop-theme-hint"
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.94 }}
+                  transition={{ delay: 0.6, duration: 0.35, ease: "easeOut" }}
+                  className="absolute top-10 right-2 w-64 pointer-events-none"
                 >
-                  {/* Curved arrow pointing up and right toward toggle */}
-                  <path d="M40 90 Q 40 40 80 20 M80 20 L65 20 M80 20 L75 35" />
-                </svg>
-                <div id="desktop-theme-hint" style={{ fontFamily: 'var(--font-handwriting)' }} className="text-xl text-muted-foreground -rotate-2 leading-tight drop-shadow-sm text-right pr-4 mt-1 pointer-events-auto select-none relative">
-                  <button
-                    className="absolute -left-6 top-1/2 -translate-y-1/2 p-2 text-muted-foreground/60 hover:text-foreground transition-colors cursor-pointer"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const parent = document.getElementById('desktop-theme-hint')?.closest('.absolute');
-                      if(parent) (parent as HTMLElement).style.display = 'none';
-                    }}
-                    aria-label="Dismiss"
-                  >
+                  <div className="relative flex flex-col items-end">
                     <svg 
-                      className="w-5 h-5" 
-                      viewBox="0 0 24 24" 
+                      className="w-10 h-10 text-muted-foreground/40 mr-12 -mb-2 z-10" 
+                      viewBox="0 0 100 100" 
                       fill="none" 
                       stroke="currentColor" 
-                      strokeWidth="2" 
+                      strokeWidth="2.5" 
                       strokeLinecap="round" 
-                      strokeLinejoin="round"
                     >
-                      <path d="M18 6 6 18M6 6l12 12"/>
+                      {/* Curved arrow pointing up and right toward toggle */}
+                      <path d="M40 90 Q 40 40 80 20 M80 20 L65 20 M80 20 L75 35" />
                     </svg>
-                  </button>
-                  <span className="text-yellow-400 font-bold mr-1 text-2xl inline-block -rotate-12">⚡</span>
-                  <span className="text-foreground text-2xl">Save your eyes!</span><br />
-                  <span>Toggle theme here</span><br/>
-                  <span>before you proceed.</span>
-                </div>
-              </div>
-            </motion.div>
+                    <div
+                      style={{ fontFamily: 'var(--font-handwriting)' }}
+                      className="text-xl text-muted-foreground -rotate-2 leading-tight drop-shadow-sm text-right pr-4 mt-1 select-none"
+                    >
+                      <span className="text-yellow-400 font-bold mr-1 text-2xl inline-block -rotate-12">⚡</span>
+                      <span className="text-foreground text-2xl">Save your eyes!</span><br />
+                      <span>Toggle theme here</span><br/>
+                      <span>before you proceed.</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <a
             href="mailto:jicoim@iu.edu"
@@ -112,52 +101,40 @@ export const Navbar = () => {
         {/* Mobile */}
         <div className="flex md:hidden items-center gap-3 relative">
           <div className="relative">
-            <ThemeToggle />
-            <motion.div 
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 1.5, duration: 0.8, ease: "easeOut" }}
-              className="absolute top-10 right-2 w-48 pointer-events-none"
-            >
-              <div className="relative flex flex-col items-end">
-                <svg 
-                  className="w-6 h-6 text-muted-foreground/40 mr-2 -mb-2 z-10" 
-                  viewBox="0 0 100 100" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round" 
+            <ThemeToggle onToggle={() => setThemeHintDismissed(true)} />
+            <AnimatePresence>
+              {!themeHintDismissed && (
+                <motion.div 
+                  key="mobile-theme-hint"
+                  initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -8, scale: 0.94 }}
+                  transition={{ delay: 0.6, duration: 0.35, ease: "easeOut" }}
+                  className="absolute top-10 right-2 w-48 pointer-events-none"
                 >
-                  <path d="M20 90 Q 20 40 80 20 M80 20 L65 20 M80 20 L75 35" />
-                </svg>
-                <div id="mobile-theme-hint" style={{ fontFamily: 'var(--font-handwriting)' }} className="text-lg text-muted-foreground -rotate-2 leading-tight drop-shadow-sm text-right pr-0 mt-1 pointer-events-auto select-none relative">
-                  <button
-                    className="absolute -left-2 top-1/2 -translate-y-1/2 p-2 text-muted-foreground/60 hover:text-foreground transition-colors cursor-pointer"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      const parent = document.getElementById('mobile-theme-hint')?.closest('.absolute');
-                      if(parent) (parent as HTMLElement).style.display = 'none';
-                    }}
-                    aria-label="Dismiss"
-                  >
+                  <div className="relative flex flex-col items-end">
                     <svg 
-                      className="w-4 h-4" 
-                      viewBox="0 0 24 24" 
+                      className="w-6 h-6 text-muted-foreground/40 mr-2 -mb-2 z-10" 
+                      viewBox="0 0 100 100" 
                       fill="none" 
                       stroke="currentColor" 
-                      strokeWidth="2" 
+                      strokeWidth="2.5" 
                       strokeLinecap="round" 
-                      strokeLinejoin="round"
                     >
-                      <path d="M18 6 6 18M6 6l12 12"/>
+                      <path d="M20 90 Q 20 40 80 20 M80 20 L65 20 M80 20 L75 35" />
                     </svg>
-                  </button>
-                  <span className="text-yellow-400 font-bold mr-1 text-xl inline-block -rotate-12">⚡</span>
-                  <span className="text-foreground text-xl">Save your eyes!</span><br />
-                  <span className="text-base">Toggle theme here.</span>
-                </div>
-              </div>
-            </motion.div>
+                    <div
+                      style={{ fontFamily: 'var(--font-handwriting)' }}
+                      className="text-lg text-muted-foreground -rotate-2 leading-tight drop-shadow-sm text-right pr-0 mt-1 select-none"
+                    >
+                      <span className="text-yellow-400 font-bold mr-1 text-xl inline-block -rotate-12">⚡</span>
+                      <span className="text-foreground text-xl">Save your eyes!</span><br />
+                      <span className="text-base">Toggle theme here.</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <button onClick={() => setMobileOpen(!mobileOpen)} className="text-foreground">
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
