@@ -4,6 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
+  // Use the GitHub Pages project path (matches repo name) in production, root in dev
   base: command === "build" ? "/personalPortfolio/" : "/",
   server: {
     host: "::",
