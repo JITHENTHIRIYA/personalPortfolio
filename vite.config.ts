@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
-  base: command === "build" ? "/your-repo-name/" : "/",
+  base: command === "build" ? "/personalPortfolio/" : "/",
   server: {
     host: "::",
     port: 8080,
