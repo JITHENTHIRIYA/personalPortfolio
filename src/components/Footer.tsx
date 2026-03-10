@@ -2,9 +2,18 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import { toast } from "sonner";
 
 export const Footer = () => {
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText("jicoim@iu.edu");
-    toast.success("Email copied to clipboard!");
+  const handleCopyEmail = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API not available");
+      }
+
+      await navigator.clipboard.writeText("jicoim@iu.edu");
+      toast.success("Email copied to clipboard!");
+    } catch (error) {
+      console.error("Failed to copy email to clipboard", error);
+      toast.error("Could not copy email. Please try again.");
+    }
   };
 
   return (

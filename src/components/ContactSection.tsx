@@ -18,11 +18,22 @@ const links = [
 export const ContactSection = () => {
   const [copied, setCopied] = useState(false);
 
-  const handleCopyEmail = (email: string) => {
-    navigator.clipboard.writeText(email);
-    setCopied(true);
-    toast.success("Email copied to clipboard!");
-    setTimeout(() => setCopied(false), 2000);
+  const handleCopyEmail = async (email: string) => {
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API not available");
+      }
+
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      toast.success("Email copied to clipboard!");
+    } catch (error) {
+      console.error("Failed to copy email to clipboard", error);
+      toast.error("Could not copy email. Please try again.");
+    } finally {
+      // Reset visual state after a short delay, regardless of outcome
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
