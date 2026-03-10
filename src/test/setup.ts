@@ -13,3 +13,21 @@ Object.defineProperty(window, "matchMedia", {
     dispatchEvent: () => {},
   }),
 });
+
+// Basic IntersectionObserver polyfill for jsdom (used by framer-motion viewport features)
+class MockIntersectionObserver {
+  constructor(_callback: IntersectionObserverCallback, _options?: IntersectionObserverInit) {}
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+}
+
+Object.defineProperty(window, "IntersectionObserver", {
+  writable: true,
+  configurable: true,
+  value: MockIntersectionObserver,
+});
+
