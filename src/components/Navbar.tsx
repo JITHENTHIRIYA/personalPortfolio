@@ -22,6 +22,19 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // If the user scrolls and hasn't interacted with the theme toggle,
+  // automatically fade the hint away after 2 seconds.
+  useEffect(() => {
+    if (themeHintDismissed) return;
+    if (window.scrollY === 0) return;
+
+    const timeoutId = window.setTimeout(() => {
+      setThemeHintDismissed(true);
+    }, 50);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [themeHintDismissed, scrolled]);
+
   return (
     <motion.nav
       initial={{ y: -100, opacity: 0 }}
