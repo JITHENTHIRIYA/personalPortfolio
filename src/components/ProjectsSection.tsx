@@ -27,12 +27,12 @@ const projects = [
     highlight: false,
   },
   {
-    title: "Real-time Gesture Recognition",
+    title: "Ask My PDF-LangChain",
     badge: null,
     description:
-      "3D CNN-LSTM hand gesture recognition model achieving 90.32% accuracy on dynamic gestures, trained on 20bn-jester video data with progressive dataset approach.",
-    tech: ["CNN", "LSTM", "MediaPipe", "Transfer Learning", "Python"],
-    link: "#",
+      "A local LLM-powered app to ask questions about any PDF using LangChain, Ollama, and FAISS with no OpenAI key required.",
+    tech: ["LangChain", "Ollama", "FAISS", "Python", "Local LLM"],
+    link: "https://github.com/JITHENTHIRIYA/askMyPDF-Langchain",
     highlight: false,
   },
   {
