@@ -20,6 +20,7 @@ export const AboutSection = () => {
     <section id="about" className="py-24 md:py-32 bg-background">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — copy */}
           <motion.div
             variants={slideLeftVariants}
             initial="hidden"
@@ -60,6 +61,7 @@ export const AboutSection = () => {
             </motion.div>
           </motion.div>
 
+          {/* Right — portrait card (reference-style: rounded, soft shadow) */}
           <motion.div
             variants={slideRightVariants}
             initial="hidden"
@@ -67,7 +69,9 @@ export const AboutSection = () => {
             viewport={viewportConfig}
             className="flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-sm rounded-[1.75rem] overflow-hidden border border-border/60 bg-card/40 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-black/5 dark:ring-white/10">
+            <div
+              className="relative w-full max-w-sm rounded-[1.75rem] overflow-hidden border border-border/60 bg-card/40 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] dark:shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] ring-1 ring-black/5 dark:ring-white/10"
+            >
               <img
                 src={aboutPortrait}
                 alt="Jithenthiriya — portrait in the snow"
