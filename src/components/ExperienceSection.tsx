@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase } from "lucide-react";
+import iuLogo from "@/assets/logo-iu.png";
+import boschLogo from "@/assets/logo-bosch.png";
 import {
   fadeUpVariants,
   staggerContainer,
@@ -8,9 +9,33 @@ import {
 } from "@/lib/animations";
 
 const experience = [
-  { company: "Surviving Breast Cancer", role: "Software Developer Intern", period: "2025", current: true },
-  { company: "Bosch Global Software", role: "Software Engineer", period: "2023-24", current: false },
-  { company: "Bosch Global Software", role: "Software Engineer Intern", period: "2022-23", current: false },
+  {
+    company: "School of Public Health, Indiana University",
+    role: "AI Software Engineer",
+    period: "2026",
+    current: true,
+    logo: iuLogo,
+    logoContainerClass: "bg-white",
+    logoClass: "w-7 h-7 object-contain",
+  },
+  {
+    company: "Bosch Global Software Technologies",
+    role: "Software Engineer",
+    period: "2023-24",
+    current: false,
+    logo: boschLogo,
+    logoContainerClass: "bg-white",
+    logoClass: "w-8 h-8 object-contain",
+  },
+  {
+    company: "Bosch Global Software Technologies",
+    role: "Software Engineer Intern",
+    period: "2022-23",
+    current: false,
+    logo: boschLogo,
+    logoContainerClass: "bg-white",
+    logoClass: "w-8 h-8 object-contain",
+  },
 ];
 
 export const ExperienceSection = () => {
@@ -49,8 +74,18 @@ export const ExperienceSection = () => {
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Briefcase size={18} className="text-foreground" />
+                  <div
+                    className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden ${
+                      exp.logoContainerClass ?? "bg-accent"
+                    }`}
+                  >
+                    <img
+                      src={exp.logo}
+                      alt={`${exp.company} logo`}
+                      className={exp.logoClass ?? "w-7 h-7 object-contain"}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <div>
                     <h4 className="font-display font-semibold text-foreground">{exp.company}</h4>
@@ -75,8 +110,14 @@ export const ExperienceSection = () => {
             className="glass-card p-6 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
           >
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                <GraduationCap size={18} className="text-foreground" />
+              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center overflow-hidden">
+                <img
+                  src={iuLogo}
+                  alt="Indiana University logo"
+                  className="w-7 h-7 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div>
                 <h4 className="font-display font-semibold text-foreground">Indiana University</h4>
