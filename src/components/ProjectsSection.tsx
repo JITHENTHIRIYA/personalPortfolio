@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "Ask My PDF-LangChain",
-    badge: null,
+    badge: "GitHub Repo",
     description:
       "A local LLM-powered app to ask questions about any PDF using LangChain, Ollama, and FAISS with no OpenAI key required.",
     tech: ["LangChain", "Ollama", "FAISS", "Python", "Local LLM"],
