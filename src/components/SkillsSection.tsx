@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Cloud, Brain, Database, Wrench, Smartphone } from "lucide-react";
+import { Brain, Cloud, Code2, Database, Wrench } from "lucide-react";
 import {
   fadeUpVariants,
   scaleFadeVariants,
@@ -10,32 +10,76 @@ const skillCategories = [
   {
     icon: Code2,
     title: "Languages",
-    skills: ["C", "C++", "Python", "Java", "TypeScript", "JavaScript", "SQL", "Kotlin", "Swift"],
-  },
-  {
-    icon: Cloud,
-    title: "Cloud & DevOps",
-    skills: ["AWS", "GCP", "Docker", "CI/CD", "Jetstream2", "DevOps", "MLOps"],
-  },
-  {
-    icon: Brain,
-    title: "AI / ML",
-    skills: ["CNN", "NLP", "LangChain", "OpenAI", "Computer Vision", "Deep Learning"],
-  },
-  {
-    icon: Database,
-    title: "Data & Backend",
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "SnowFlake", "Spark", "FastAPI", "Django"],
+    skills: [
+      "Python",
+      "C++",
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "SQL",
+      "C",
+      "C#",
+      "Kotlin",
+      "Swift",
+      "HTML",
+    ],
   },
   {
     icon: Wrench,
-    title: "Frameworks",
-    skills: ["React", "Angular", "Node.js", "React Native", "Git", "REST APIs"],
+    title: "Frameworks & Libraries",
+    skills: [
+      "FastAPI",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Django",
+      "Angular",
+      "LangChain",
+      "Git",
+      "REST APIs",
+      "OAuth",
+    ],
   },
   {
-    icon: Smartphone,
-    title: "Mobile",
-    skills: ["Android Development", "Kotlin", "Swift", "React Native"],
+    icon: Cloud,
+    title: "Cloud & Infrastructure",
+    skills: ["AWS", "GCP", "Docker", "CI/CD", "Lambda", "SQS", "Amplify", "Jetstream2 Cloud"],
+  },
+  {
+    icon: Database,
+    title: "Databases & Data Engineering",
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "DynamoDB",
+      "Snowflake",
+      "Vector Databases",
+      "Apache Airflow",
+      "Data Warehousing",
+      "Batch Processing",
+      "ETL/ELT",
+      "Dimensional Modeling",
+      "dbt",
+      "Spark",
+    ],
+  },
+  {
+    icon: Brain,
+    title: "ML/AI",
+    skills: [
+      "Machine Learning",
+      "NLP",
+      "Computer Vision",
+      "CNN",
+      "Embeddings",
+      "LLMs",
+      "RAG",
+      "Semantic Search",
+      "Vector Search",
+      "MLOps",
+      "Retrieval Pipelines",
+    ],
   },
 ];
 
@@ -101,7 +145,7 @@ export const SkillsSection = () => {
               (skill, i) => (
                 <span
                   key={i}
-                  className="mx-4 text-sm text-muted-foreground/40 font-display font-medium"
+                  className="mx-2 text-sm text-foreground/80 font-display font-semibold px-3 py-1 rounded-full bg-accent/50 border border-border/60"
                 >
                   {skill}
                 </span>
