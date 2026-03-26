@@ -8,6 +8,9 @@ type Project = {
   description: string;
   tech: string[];
   highlight: boolean;
+  /** Project write-up, hackathon submission, etc. (shown as primary-style pill) */
+  externalUrl?: string;
+  externalLabel?: string;
   githubUrl?: string;
   demoUrl?: string;
 };
@@ -25,6 +28,8 @@ const projects: Project[] = [
     description:
       "AI-powered assistant that transcribes meetings, generates summaries, extracts action items and performs sentiment analysis using OpenAI Whisper and GPT models.",
     tech: ["FastAPI", "OpenAI", "SQL", "CI/CD", "Python"],
+    externalUrl: "https://devpost.com/software/meet-mind-ai",
+    externalLabel: "Project",
     highlight: true,
   },
   {
@@ -94,10 +99,22 @@ export const ProjectsSection = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {projects.map((project) => {
+            const hasExternal = Boolean(project.externalUrl);
             const hasGithub = Boolean(project.githubUrl);
             const hasDemo = Boolean(project.demoUrl);
-            const linkRow = (hasGithub || hasDemo) && (
+            const linkRow = (hasExternal || hasGithub || hasDemo) && (
               <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/60">
+                {hasExternal && (
+                  <a
+                    href={project.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={demoPillClass}
+                  >
+                    <ExternalLink size={14} aria-hidden />
+                    {project.externalLabel ?? "View project"}
+                  </a>
+                )}
                 {hasDemo && (
                   <a
                     href={project.demoUrl}
