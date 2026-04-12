@@ -72,7 +72,7 @@ const projects: Project[] = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 md:py-32 bg-background">
+    <section id="projects" className="py-24 md:py-32">
       <div className="section-container">
         <motion.div
           variants={fadeUpVariants}

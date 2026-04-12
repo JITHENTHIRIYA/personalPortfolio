@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, GraduationCap } from "lucide-react";
 import { toast } from "sonner";
 
 export const Footer = () => {
@@ -17,7 +17,7 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="py-12 border-t border-border/50 bg-background">
+    <footer className="py-12 border-t border-border/50">
       <div className="section-container flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="font-display font-bold text-lg text-foreground">
@@ -35,6 +35,10 @@ export const Footer = () => {
           <a href="https://www.linkedin.com/in/jithenthiriya/" target="_blank" rel="noopener noreferrer"
             className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all">
             <Linkedin size={16} />
+          </a>
+          <a href="https://scholar.google.com/citations?user=a0LJJfYAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener noreferrer"
+            className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all">
+            <GraduationCap size={16} />
           </a>
           <button onClick={handleCopyEmail}
             className="w-9 h-9 rounded-full border border-border/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all cursor-pointer">

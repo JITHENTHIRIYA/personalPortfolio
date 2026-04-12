@@ -32,7 +32,7 @@ const faqs = [
 
 export const FAQSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-background">
+    <section className="py-24 md:py-32">
       <div className="section-container max-w-3xl">
         <motion.div
           variants={fadeUpVariants}

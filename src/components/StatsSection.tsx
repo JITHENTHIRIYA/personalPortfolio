@@ -10,7 +10,7 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="py-16 bg-background">
+    <section className="py-16">
       <div className="section-container">
         <motion.div
           variants={staggerContainer}

@@ -40,7 +40,7 @@ const experience = [
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-24 md:py-32 bg-card/30">
+    <section id="experience" className="py-24 md:py-32">
       <div className="section-container">
         <motion.div
           variants={fadeUpVariants}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, ArrowUpRight, Copy, Check } from "lucide-react";
+import { Mail, Github, Linkedin, GraduationCap, ArrowUpRight, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import {
   fadeUpVariants,
@@ -13,6 +13,11 @@ const links = [
   { icon: Mail, label: "jicoim@iu.edu", isEmail: true },
   { icon: Github, label: "GitHub", href: "https://github.com/jithenthiriya" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/jithenthiriya/" },
+  {
+    icon: GraduationCap,
+    label: "Google Scholar",
+    href: "https://scholar.google.com/citations?user=a0LJJfYAAAAJ&hl=en&authuser=1",
+  },
 ];
 
 export const ContactSection = () => {
@@ -37,7 +42,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-card/30">
+    <section id="contact" className="py-24 md:py-32">
       <div className="section-container text-center">
         <motion.div
           variants={fadeUpVariants}

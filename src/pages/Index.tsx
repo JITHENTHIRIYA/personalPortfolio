@@ -8,10 +8,12 @@ import { StatsSection } from "@/components/StatsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
+import { DotBackground } from "@/components/DotBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <DotBackground />
       <Navbar />
       <HeroSection />
       <AboutSection />

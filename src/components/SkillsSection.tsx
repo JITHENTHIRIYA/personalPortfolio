@@ -85,7 +85,7 @@ const skillCategories = [
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-24 md:py-32 bg-card/30">
+    <section id="skills" className="py-24 md:py-32">
       <div className="section-container">
         <motion.div
           variants={fadeUpVariants}

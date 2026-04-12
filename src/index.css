@@ -113,7 +113,7 @@
     @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-20;
   }
   .hero-section {
-    background-color: hsl(var(--hero-bg));
+    background-color: transparent;
     color: hsl(var(--hero-foreground));
   }
   .text-hero {

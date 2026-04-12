@@ -1,34 +1,10 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { heroTextVariants, ease } from "@/lib/animations";
-import { DotBackground } from "@/components/DotBackground";
 
 export const HeroSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section">
-      {/* Dot background */}
-      <motion.div
-        className="absolute inset-0"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.8, ease: ease.smooth }}
-        style={{ y: bgY }}
-      >
-        <DotBackground />
-      </motion.div>
-
-      {/* Bottom fade to background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ zIndex: 2 }} />
-
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section">
       <div className="relative z-10 section-container text-center">
         {/* Status badge */}
         <motion.div

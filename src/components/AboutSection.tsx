@@ -17,7 +17,7 @@ const skills = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background">
+    <section id="about" className="py-24 md:py-32">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — copy */}
