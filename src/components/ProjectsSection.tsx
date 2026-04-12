@@ -59,13 +59,13 @@ const projects: Project[] = [
     highlight: false,
   },
   {
-    title: "Movie Memory",
-    badge: null,
+    title: "Resolvly",
+    badge: "Claude Builder Hackathon",
     description:
-      "Full-stack movie app with Google OAuth, AI-generated fun facts about your favorite film, optimistic UI, and PostgreSQL-backed profiles — Next.js App Router, Prisma, NextAuth, and OpenAI.",
-    tech: ["Next.js", "Prisma", "PostgreSQL", "OpenAI", "NextAuth", "Tailwind"],
-    githubUrl: "https://github.com/JITHENTHIRIYA/movie-memory",
-    demoUrl: "https://movie-memory-sigma.vercel.app",
+      "AI-powered insurance denial analyzer that decodes opaque denial letters into actionable appeal plans using live regulatory lookups and multi-agent orchestration.",
+    tech: ["FastAPI", "React", "TypeScript", "LangChain", "Groq", "Docker"],
+    githubUrl: "https://github.com/Ctrl-Alt-Defeat-Hackathon/Resolvly",
+    demoUrl: "https://resolvly.vercel.app",
     highlight: false,
   },
 ];
@@ -148,9 +148,8 @@ export const ProjectsSection = () => {
                   y: -8,
                   transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] },
                 }}
-                className={`glass-card p-6 group hover:border-foreground/20 hover:shadow-xl hover:shadow-foreground/5 transition-all duration-300 flex flex-col ${
-                  project.highlight ? "md:col-span-2 lg:col-span-2" : ""
-                }`}
+                className={`glass-card p-6 group hover:border-foreground/20 hover:shadow-xl hover:shadow-foreground/5 transition-all duration-300 flex flex-col ${project.highlight ? "md:col-span-2 lg:col-span-2" : ""
+                  }`}
               >
                 {project.badge && (
                   <div className="flex items-center gap-1.5 mb-3">
