@@ -57,7 +57,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.8, ease: ease.smooth }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
           <a
             href="#contact"
@@ -75,19 +75,50 @@ export const HeroSection = () => {
           </a>
         </motion.div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.0, duration: 1 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+          className="flex flex-col items-center gap-4 mb-16"
         >
           <div className="flex items-center gap-6">
-            <span className="text-xs text-hero-muted tracking-wider">Scroll down</span>
-            <div className="scroll-indicator border-muted-foreground/40">
+            <span className="text-xs text-hero-muted tracking-widest uppercase">Scroll down</span>
+            <div className="scroll-indicator border-muted-foreground/40 scale-75">
               <div className="scroll-dot bg-muted-foreground/60 animate-scroll-down" />
             </div>
-            <span className="text-xs text-hero-muted tracking-wider">to explore</span>
+            <span className="text-xs text-hero-muted tracking-widest uppercase">to explore</span>
+          </div>
+        </motion.div>
+
+        {/* Skills Marquee */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.8, duration: 1 }}
+          className="w-full max-w-5xl mx-auto overflow-hidden relative"
+        >
+          {/* Faded edges for better blending */}
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
+          
+          <div className="flex animate-marquee whitespace-nowrap py-4">
+            {["Python", "C++", "React", "AWS", "Docker", "Machine Learning", "FastAPI", "PostgreSQL", "LangChain", "LLMs", "NLP", "TypeScript", "Node.js", "CI/CD", "Kubernetes", "PyTorch"].map((skill, i) => (
+              <span
+                key={i}
+                className="mx-4 text-xs font-display font-bold tracking-widest uppercase text-foreground/60 border border-foreground/20 px-5 py-2 rounded-full backdrop-blur-sm shadow-sm"
+              >
+                {skill}
+              </span>
+            ))}
+            {/* Duplicate for seamless loop */}
+            {["Python", "C++", "React", "AWS", "Docker", "Machine Learning", "FastAPI", "PostgreSQL", "LangChain", "LLMs", "NLP", "TypeScript", "Node.js", "CI/CD", "Kubernetes", "PyTorch"].map((skill, i) => (
+              <span
+                key={`dup-${i}`}
+                className="mx-4 text-xs font-display font-bold tracking-widest uppercase text-foreground/60 border border-foreground/20 px-5 py-2 rounded-full backdrop-blur-sm shadow-sm"
+              >
+                {skill}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>
