@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { GraduationCap } from "lucide-react";
 import iuLogo from "@/assets/logo-iu.png";
 import boschLogo from "@/assets/logo-bosch.png";
 import {
@@ -58,75 +59,107 @@ export const ExperienceSection = () => {
           </p>
         </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportConfig}
-          className="max-w-2xl mx-auto space-y-6"
-        >
-          {experience.map((exp, i) => (
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+          {/* Work Column */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="space-y-6"
+          >
+            <h3 className="font-display font-semibold text-2xl text-foreground mb-6">Experience</h3>
+            {experience.map((exp, i) => (
+              <motion.div
+                key={i}
+                variants={staggerItem}
+                whileHover={{ y: -4, transition: { duration: 0.25 } }}
+                className="glass-card p-6 group hover:border-foreground/20 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
+              >
+                <div className="flex items-start justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden ${
+                        exp.logoContainerClass ?? "bg-accent"
+                      }`}
+                    >
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className={exp.logoClass ?? "w-7 h-7 object-contain"}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-semibold text-foreground">{exp.company}</h4>
+                      <p className="text-sm text-muted-foreground">{exp.role}</p>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    {exp.current && (
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 mb-1 inline-block">
+                        Current
+                      </span>
+                    )}
+                    <p className="text-xs text-muted-foreground">{exp.period}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Education Column */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportConfig}
+            className="space-y-6"
+          >
+            <h3 className="font-display font-semibold text-2xl text-foreground mb-6">Education</h3>
             <motion.div
-              key={i}
               variants={staggerItem}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="glass-card p-6 group hover:border-foreground/20 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
+              className="glass-card p-6 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
             >
-              <div className="flex items-start justify-between mb-2">
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden ${
-                      exp.logoContainerClass ?? "bg-accent"
-                    }`}
-                  >
-                    <img
-                      src={exp.logo}
-                      alt={`${exp.company} logo`}
-                      className={exp.logoClass ?? "w-7 h-7 object-contain"}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="font-display font-semibold text-foreground">{exp.company}</h4>
-                    <p className="text-sm text-muted-foreground">{exp.role}</p>
-                  </div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center overflow-hidden">
+                  <img
+                    src={iuLogo}
+                    alt="Indiana University logo"
+                    className="w-7 h-7 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                <div className="text-right">
-                  {exp.current && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 mb-1 inline-block">
-                      Current
-                    </span>
-                  )}
-                  <p className="text-xs text-muted-foreground">{exp.period}</p>
+                <div>
+                  <h4 className="font-display font-semibold text-foreground">Indiana University</h4>
+                  <p className="text-sm text-muted-foreground">M.S. Computer Science</p>
                 </div>
               </div>
+              <p className="text-xs text-muted-foreground ml-[52px]">Aug 2024 – May 2026</p>
             </motion.div>
-          ))}
 
-          <motion.div
-            variants={staggerItem}
-            whileHover={{ y: -4, transition: { duration: 0.25 } }}
-            className="glass-card p-6 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center overflow-hidden">
-                <img
-                  src={iuLogo}
-                  alt="Indiana University logo"
-                  className="w-7 h-7 object-contain"
-                  loading="lazy"
-                  decoding="async"
-                />
+            <motion.div
+              variants={staggerItem}
+              whileHover={{ y: -4, transition: { duration: 0.25 } }}
+              className="glass-card p-6 hover:shadow-lg hover:shadow-foreground/5 transition-all duration-300"
+            >
+              <div className="flex items-start gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center overflow-hidden flex-shrink-0 mt-0.5">
+                  <GraduationCap className="w-5 h-5 text-muted-foreground" />
+                </div>
+                <div>
+                  <h4 className="font-display font-bold text-foreground">Anna University</h4>
+                  <p className="text-sm font-medium text-foreground">Kumaraguru College of Technology</p>
+                  <p className="text-sm text-muted-foreground mt-1">Bachelors of Science, Computer Science</p>
+                </div>
               </div>
-              <div>
-                <h4 className="font-display font-semibold text-foreground">Indiana University</h4>
-                <p className="text-sm text-muted-foreground">M.S. Computer Science</p>
-              </div>
-            </div>
-            <p className="text-xs text-muted-foreground ml-[52px]">Aug 2024 – May 2026</p>
+              <p className="text-xs text-muted-foreground ml-[52px]">Aug 2019 – May 2023</p>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
