@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
@@ -15,6 +16,12 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [themeHintDismissed, setThemeHintDismissed] = useState(false);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const showHint = mounted && theme !== "dark" && !themeHintDismissed;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -68,7 +75,7 @@ export const Navbar = () => {
           <div className="relative">
             <ThemeToggle onToggle={() => setThemeHintDismissed(true)} />
             <AnimatePresence>
-              {!themeHintDismissed && (
+              {showHint && (
                 <motion.div 
                   key="desktop-theme-hint"
                   initial={{ opacity: 0, y: 8, scale: 0.96 }}
@@ -116,7 +123,7 @@ export const Navbar = () => {
           <div className="relative">
             <ThemeToggle onToggle={() => setThemeHintDismissed(true)} />
             <AnimatePresence>
-              {!themeHintDismissed && (
+              {showHint && (
                 <motion.div 
                   key="mobile-theme-hint"
                   initial={{ opacity: 0, y: 8, scale: 0.96 }}
