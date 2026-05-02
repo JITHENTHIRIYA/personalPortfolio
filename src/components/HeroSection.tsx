@@ -11,11 +11,11 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.7, ease: ease.smooth }}
-          className="inline-flex items-center justify-center gap-2 mb-6 px-5 py-2.5 rounded-full border border-foreground/20 bg-foreground/5 backdrop-blur-md animate-[pulse_4s_cubic-bezier(0.4,0,0.6,1)_infinite]"
+          className="inline-flex items-center justify-center gap-2 mb-6 px-5 py-2.5 rounded-full border border-foreground/20 bg-foreground/5 backdrop-blur-md animate-status-pulse"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.9)] animate-pulse" />
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.9)] animate-status-pulse" />
           <span className="text-xs font-bold text-foreground tracking-widest uppercase">
-            Software Engineer & ML Enthusiast
+            AI Software Engineer
           </span>
         </motion.div>
 

@@ -110,6 +110,11 @@ export default {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        /** Hero status badge: dim to 30% opacity at midpoint, never fully off */
+        "status-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.3" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,6 +126,7 @@ export default {
         "marquee": "marquee 20s linear infinite",
         "scroll-down": "scroll-down 2s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
+        "status-pulse": "status-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },
   },

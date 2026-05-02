@@ -30,6 +30,7 @@ const projects: Project[] = [
     tech: ["FastAPI", "OpenAI", "SQL", "CI/CD", "Python"],
     externalUrl: "https://devpost.com/software/meet-mind-ai",
     externalLabel: "Project",
+    githubUrl: "https://github.com/Ctrl-Alt-Defeat-Hackathon/MeetMind-AI",
     highlight: true,
   },
   {
