@@ -39,6 +39,7 @@ const projects: Project[] = [
     description:
       "End-to-end computer vision MLOps pipeline with Dockerized model service, CI/CD via GitHub Actions, and AWS cloud-ready API-driven deployment.",
     tech: ["Docker", "AWS", "GitHub Actions", "Python", "CI/CD"],
+    githubUrl: "https://github.com/JITHENTHIRIYA/cv-mlops-pipeline",
     highlight: false,
   },
   {
@@ -48,15 +49,6 @@ const projects: Project[] = [
       "A local LLM-powered app to ask questions about any PDF using LangChain, Ollama, and FAISS with no OpenAI key required.",
     tech: ["LangChain", "Ollama", "FAISS", "Python", "Local LLM"],
     githubUrl: "https://github.com/JITHENTHIRIYA/askMyPDF-Langchain",
-    highlight: false,
-  },
-  {
-    title: "AI Agent Orchestration Platform",
-    badge: null,
-    description:
-      "Multi-agent AI orchestration platform with RAG pipelines, MCP tool integration, and cloud-native deployment — FastAPI backend, ReAct agents with Groq (LLaMA 3.3), Pinecone vector search, plus React dashboard and AWS Lambda, SQS, and Kubernetes for scale.",
-    tech: ["FastAPI", "LangChain", "Groq", "Pinecone", "MCP", "React", "AWS", "Kubernetes"],
-    githubUrl: "https://github.com/JITHENTHIRIYA/ai-agent-orchestration-platform",
     highlight: false,
   },
   {
