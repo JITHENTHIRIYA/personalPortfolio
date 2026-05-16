@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, GraduationCap } from "lucide-react";
-import aboutPortrait from "@/assets/about-portrait.png";
+import aboutPortrait from "@/assets/Jithenthiriya.jpg";
 import {
   slideLeftVariants,
   slideRightVariants,
@@ -74,8 +74,8 @@ export const AboutSection = () => {
             >
               <img
                 src={aboutPortrait}
-                alt="Jithenthiriya — portrait in the snow"
-                className="w-full h-auto object-cover aspect-[3/4] sm:aspect-[4/5] object-[center_20%] select-none pointer-events-none"
+                alt="Portrait of Jithenthiriya"
+                className="w-full h-auto object-cover aspect-[3/4] sm:aspect-[4/5] object-center select-none pointer-events-none"
                 loading="lazy"
                 decoding="async"
               />
