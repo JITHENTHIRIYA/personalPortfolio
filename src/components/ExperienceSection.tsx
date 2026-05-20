@@ -15,8 +15,8 @@ const experience = [
   {
     company: "School of Public Health, Indiana University",
     role: "AI Software Engineer",
-    period: "2026",
-    current: true,
+    period: "Feb 2026 – May 2026",
+    current: false,
     logo: iuLogo,
     logoContainerClass: "bg-white",
     logoClass: "w-7 h-7 object-contain",
@@ -85,13 +85,13 @@ const ExperienceCard = ({ exp }: { exp: any }) => {
             <p className="text-sm text-muted-foreground">{exp.role}</p>
           </div>
         </div>
-        <div className="text-right flex flex-col items-end">
+        <div className="text-right flex flex-col items-end shrink-0 ml-3">
           {exp.current && (
-            <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 mb-1 inline-block">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 mb-1 inline-block whitespace-nowrap">
               Current
             </span>
           )}
-          <p className="text-xs text-muted-foreground">{exp.period}</p>
+          <p className="text-xs text-muted-foreground whitespace-nowrap">{exp.period}</p>
           {hasDescription && (
             <ChevronDown 
               className={`w-4 h-4 text-muted-foreground mt-2 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} 

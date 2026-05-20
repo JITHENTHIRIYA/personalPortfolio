@@ -31,6 +31,7 @@ const projects: Project[] = [
     externalUrl: "https://devpost.com/software/meet-mind-ai",
     externalLabel: "Project",
     githubUrl: "https://github.com/Ctrl-Alt-Defeat-Hackathon/MeetMind-AI",
+    demoUrl: "https://meetmindai-beta.vercel.app",
     highlight: true,
   },
   {
