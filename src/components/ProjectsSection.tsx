@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Trophy } from "lucide-react";
+import { ExternalLink, Github, Trophy, ZoomIn } from "lucide-react";
 import { fadeUpVariants, scaleFadeVariants, viewportConfig } from "@/lib/animations";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import meetmindPreview from "@/assets/meetmind-preview.png";
+import resolvlyPreview from "@/assets/resolvly-preview.png";
 
 type Project = {
   title: string;
@@ -13,6 +21,8 @@ type Project = {
   externalLabel?: string;
   githubUrl?: string;
   demoUrl?: string;
+  previewImage?: string;
+  previewAlt?: string;
 };
 
 const actionPillBase =
@@ -32,6 +42,8 @@ const projects: Project[] = [
     externalLabel: "Project",
     githubUrl: "https://github.com/Ctrl-Alt-Defeat-Hackathon/MeetMind-AI",
     demoUrl: "https://meetmindai-beta.vercel.app",
+    previewImage: meetmindPreview,
+    previewAlt: "MeetMind AI landing page — media upload and meeting analysis",
     highlight: true,
   },
   {
@@ -60,7 +72,9 @@ const projects: Project[] = [
     tech: ["FastAPI", "React", "TypeScript", "LangChain", "Groq", "Docker"],
     githubUrl: "https://github.com/Ctrl-Alt-Defeat-Hackathon/Resolvly",
     demoUrl: "https://resolvly.vercel.app",
-    highlight: false,
+    previewImage: resolvlyPreview,
+    previewAlt: "Resolvly landing page — Indiana insurance denial analyzer",
+    highlight: true,
   },
 ];
 
@@ -156,6 +170,41 @@ export const ProjectsSection = () => {
                 <h3 className="font-display font-bold text-xl text-foreground mb-3 group-hover:text-foreground/80 transition-colors duration-300">
                   {project.title}
                 </h3>
+                {project.previewImage && (
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <button
+                        type="button"
+                        className="relative mb-4 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 group/preview"
+                        aria-label={`View ${project.title} screenshot`}
+                      >
+                        <img
+                          src={project.previewImage}
+                          alt={project.previewAlt ?? `${project.title} preview`}
+                          className="w-full h-auto object-cover object-top max-h-48 sm:max-h-56 transition-transform duration-300 group-hover/preview:scale-[1.02]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                        <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover/preview:bg-black/40 transition-colors duration-300">
+                          <span className="flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium text-foreground opacity-0 group-hover/preview:opacity-100 transition-opacity duration-300 shadow-sm">
+                            <ZoomIn size={14} aria-hidden />
+                            Click to enlarge
+                          </span>
+                        </span>
+                      </button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-5xl w-[min(95vw,64rem)] p-2 sm:p-3 gap-0 border-border/60">
+                      <DialogTitle className="sr-only">
+                        {project.title} screenshot
+                      </DialogTitle>
+                      <img
+                        src={project.previewImage}
+                        alt={project.previewAlt ?? `${project.title} preview`}
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </DialogContent>
+                  </Dialog>
+                )}
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
                   {project.description}
                 </p>
