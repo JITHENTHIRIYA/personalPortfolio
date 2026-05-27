@@ -4,8 +4,12 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ command }) => ({
-  // Use the GitHub Pages project path (matches repo name) in production, root in dev
-  base: command === "build" ? "/personalPortfolio/" : "/",
+  /**
+   * Routing base path:
+   * - GitHub Pages deploys under `/<repo>/` (keep existing behavior)
+   * - Vercel deploys at the domain root (must be `/`)
+   */
+  base: command === "build" && !process.env.VERCEL ? "/personalPortfolio/" : "/",
   server: {
     host: "::",
     port: 8080,

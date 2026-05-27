@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Trophy, ZoomIn } from "lucide-react";
 import { fadeUpVariants, scaleFadeVariants, viewportConfig } from "@/lib/animations";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import cvMlopsPreview from "@/assets/cv-mlops-preview.png";
 import meetmindPreview from "@/assets/meetmind-preview.png";
 import resolvlyPreview from "@/assets/resolvly-preview.png";
 
@@ -53,6 +55,8 @@ const projects: Project[] = [
       "End-to-end computer vision MLOps pipeline with Dockerized model service, CI/CD via GitHub Actions, and AWS cloud-ready API-driven deployment.",
     tech: ["Docker", "AWS", "GitHub Actions", "Python", "CI/CD"],
     githubUrl: "https://github.com/JITHENTHIRIYA/cv-mlops-pipeline",
+    previewImage: cvMlopsPreview,
+    previewAlt: "CV Pipeline object detection dashboard — Faster R-CNN inference UI",
     highlight: false,
   },
   {
@@ -193,15 +197,38 @@ export const ProjectsSection = () => {
                         </span>
                       </button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-5xl w-[min(95vw,64rem)] p-2 sm:p-3 gap-0 border-border/60">
+                    <DialogContent className="max-w-5xl w-[min(95vw,64rem)] p-2 sm:p-3 gap-0 border-border/60 overflow-hidden">
                       <DialogTitle className="sr-only">
                         {project.title} screenshot
                       </DialogTitle>
-                      <img
-                        src={project.previewImage}
-                        alt={project.previewAlt ?? `${project.title} preview`}
-                        className="w-full h-auto rounded-lg"
-                      />
+                      <div
+                        className={cn(
+                          "relative rounded-lg overflow-hidden",
+                          project.demoUrl && "group/dialog-lightbox",
+                        )}
+                      >
+                        <img
+                          src={project.previewImage}
+                          alt={project.previewAlt ?? `${project.title} preview`}
+                          className={cn(
+                            "w-full h-auto rounded-lg",
+                            project.demoUrl &&
+                              "transition-all duration-300 group-hover/dialog-lightbox:blur-sm group-hover/dialog-lightbox:scale-[1.01]",
+                          )}
+                        />
+                        {project.demoUrl && (
+                          <span className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover/dialog-lightbox:bg-black/40 transition-colors duration-300">
+                            <a
+                              href={project.demoUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 bg-black/50 backdrop-blur-sm text-white text-sm font-semibold shadow-lg opacity-0 group-hover/dialog-lightbox:opacity-100 pointer-events-none group-hover/dialog-lightbox:pointer-events-auto hover:bg-black/65 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+                            >
+                              Visit demo 🚀
+                            </a>
+                          </span>
+                        )}
+                      </div>
                     </DialogContent>
                   </Dialog>
                 )}
