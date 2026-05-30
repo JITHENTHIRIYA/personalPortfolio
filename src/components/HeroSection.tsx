@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { heroTextVariants, ease } from "@/lib/animations";
+import { TypewriterEffect } from "./TypewriterEffect";
 
 export const HeroSection = () => {
 
@@ -26,7 +27,7 @@ export const HeroSection = () => {
             initial="hidden"
             animate="visible"
             custom={0.8}
-            className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-hero"
+            className="font-display font-semibold text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-hero"
           >
             Building what
           </motion.h1>
@@ -37,9 +38,14 @@ export const HeroSection = () => {
             initial="hidden"
             animate="visible"
             custom={1.0}
-            className="font-display font-extrabold text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-hero-muted"
+            className="font-display font-semibold text-5xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight text-hero-muted"
           >
-            matters most
+            <TypewriterEffect
+              words={["matters most", "inspires change", "solves problems", "makes an impact"]}
+              typingSpeed={90}
+              deletingSpeed={55}
+              pauseDuration={1800}
+            />
           </motion.h1>
         </div>
 

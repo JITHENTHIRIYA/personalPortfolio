@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:framer.com)",
+      "WebFetch(domain:framerusercontent.com)"
+    ]
+  }
+}
