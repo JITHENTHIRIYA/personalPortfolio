@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Analytics } from "@vercel/analytics/react";
+import { CursorDotTrail } from "@/components/CursorDotTrail";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           </Routes>
         </BrowserRouter>
         <Analytics />
+        <CursorDotTrail />
       </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
